@@ -35,6 +35,8 @@ endif()
 
 add_subdirectory(libs)
 
+add_subdirectory(apps)
+
 option (BUILD_TESTING "Build the testing tree." ON)
 # Only build tests if we are the top-level project
 # Allows this to be used by super projects with `add_subdirectory`
