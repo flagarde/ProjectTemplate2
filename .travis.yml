@@ -74,9 +74,9 @@ script:
     #- source dependencies/root/bin/thisroot.sh
     - mkdir build
     - cd build
-    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then cmake .. ; cmake --build . ; fi
-    - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "clang" ]; then cmake .. ; cmake --build . ; fi
-    - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "gcc" ]; then cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug .. ; cmake --build . --config Debug -- -j $(nproc) ; fi
+    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../bin .. ; cmake --build . ; fi
+    - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "clang" ]; then cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../bin .. ; cmake --build . ; fi
+    - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "gcc" ]; then cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../bin .. ; cmake --build . --config Debug -- -j $(nproc) ; fi
     - if [ "$TRAVIS_OS_NAME" == "windows" ]; then cmake -G "Visual Studio 15 2017" -A x64 .. ; cmake --build . ; fi
     - cmake --install .
     # - make test
