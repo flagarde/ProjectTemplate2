@@ -28,7 +28,12 @@ jobs:
             cc: "gcc", cxx: "g++"
           }
         - {
-            name: "Ubuntu Latest GCC", artifact: "Linux.tar.xz",
+            name: "Ubuntu Latest GCC", artifact: "Linux-GCC.tar.xz",
+            os: ubuntu-latest,
+            cc: "gcc", cxx: "g++"
+          }
+        - {
+            name: "Ubuntu Latest Clang", artifact: "Linux-Clang.tar.xz",
             os: ubuntu-latest,
             cc: "gcc", cxx: "g++"
           }
@@ -266,7 +271,11 @@ jobs:
             os: ubuntu-latest
           }
         - {
-            name: "Ubuntu Latest GCC", artifact: "Linux.tar.xz",
+            name: "Ubuntu Latest GCC", artifact: "Linux-GCC.tar.xz",
+            os: ubuntu-latest
+          }
+        - {
+            name: "Ubuntu Latest Clang", artifact: "Linux-Clang.tar.xz",
             os: ubuntu-latest
           }
         - {
