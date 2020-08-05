@@ -6,6 +6,8 @@
 ![Windows MSVC](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Windows%20MSVC/badge.svg)
 ![Windows MinGW](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Windows%20MinGW/badge.svg)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6a6bfa2dbef4060a99fdfe1ef244a9e)](https://app.codacy.com/manual/@GITHUB_ORGANIZATION@/@PROJECT_NAME@?utm_source=github.com&utm_medium=referral&utm_content=@GITHUB_ORGANIZATION@/@PROJECT_NAME@&utm_campaign=Badge_Grade_Dashboard)
+
 ## @PROJECT_DESCRIPTION@ ##
 
 [Documentation](https://@GITHUB_ORGANIZATION@.github.io/@PROJECT_NAME@/)
