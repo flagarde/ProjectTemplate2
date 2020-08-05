@@ -1,0 +1,11 @@
+# @PROJECT_NAME@ v@PROJECT_VERSION@ #
+
+![macOS](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/macOS/badge.svg?branch=master)
+![Linux GCC](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Linux%20GCC/badge.svg)
+![Linux Clang](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Linux%20Clang/badge.svg)
+![Windows MSVC](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Windows%20MSVC/badge.svg)
+![Windows MinGW](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Windows%20MinGW/badge.svg)
+
+## @PROJECT_DESCRIPTION@ ##
+
+[Documentation](https://@GITHUB_ORGANIZATION@.github.io/@PROJECT_NAME@/)
