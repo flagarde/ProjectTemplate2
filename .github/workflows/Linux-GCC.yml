@@ -1,4 +1,4 @@
-name: CMake Build Matrix
+name: Linux GCC
 
 on: [push, pull_request]
 
@@ -17,30 +17,9 @@ jobs:
       matrix:
         config:
         - {
-            name: "Windows Latest MSVC", artifact: "Windows-MSVC.tar.xz",
-            os: windows-latest,
-            cc: "cl", cxx: "cl",
-            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
-          }
-        - {
-            name: "Windows Latest MinGW", artifact: "Windows-MinGW.tar.xz",
-            os: windows-latest,
-            cc: "gcc", cxx: "g++"
-          }
-        - {
             name: "Ubuntu Latest GCC", artifact: "Linux-GCC.tar.xz",
             os: ubuntu-latest,
             cc: "gcc", cxx: "g++"
-          }
-        - {
-            name: "Ubuntu Latest Clang", artifact: "Linux-Clang.tar.xz",
-            os: ubuntu-latest,
-            cc: "clang", cxx: "clang++"
-          }
-        - {
-            name: "macOS Latest Clang", artifact: "macOS.tar.xz",
-            os: macos-latest,
-            cc: "clang", cxx: "clang++"
           }
 
     steps:
@@ -55,19 +34,9 @@ jobs:
 
         message(STATUS "Using host CMake version: ${CMAKE_VERSION}")
 
-        if ("${{ runner.os }}" STREQUAL "Windows")
-          set(ninja_suffix "win.zip")
-          set(cmake_suffix "win64-x64.zip")
-          set(cmake_dir "cmake-${cmake_version}-win64-x64/bin")
-        elseif ("${{ runner.os }}" STREQUAL "Linux")
-          set(ninja_suffix "linux.zip")
-          set(cmake_suffix "Linux-x86_64.tar.gz")
-          set(cmake_dir "cmake-${cmake_version}-Linux-x86_64/bin")
-        elseif ("${{ runner.os }}" STREQUAL "macOS")
-          set(ninja_suffix "mac.zip")
-          set(cmake_suffix "Darwin-x86_64.tar.gz")
-          set(cmake_dir "cmake-${cmake_version}-Darwin-x86_64/CMake.app/Contents/bin")
-        endif()
+        set(ninja_suffix "linux.zip")
+        set(cmake_suffix "Linux-x86_64.tar.gz")
+        set(cmake_dir "cmake-${cmake_version}-Linux-x86_64/bin")
 
         set(ninja_url "https://github.com/ninja-build/ninja/releases/download/v${ninja_version}/ninja-${ninja_suffix}")
         file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
@@ -117,23 +86,7 @@ jobs:
         set(ENV{CC} ${{ matrix.config.cc }})
         set(ENV{CXX} ${{ matrix.config.cxx }})
 
-        if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
-          execute_process(
-            COMMAND "${{ matrix.config.environment_script }}" && set
-            OUTPUT_FILE environment_script_output.txt
-          )
-          file(STRINGS environment_script_output.txt output_lines)
-          foreach(line IN LISTS output_lines)
-            if (line MATCHES "^([a-zA-Z0-9_-]+)=(.*)$")
-              set(ENV{${CMAKE_MATCH_1}} "${CMAKE_MATCH_2}")
-            endif()
-          endforeach()
-        endif()
-
         set(path_separator ":")
-        if ("${{ runner.os }}" STREQUAL "Windows")
-          set(path_separator ";")
-        endif()
         set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
 
         execute_process(
@@ -157,19 +110,7 @@ jobs:
       run: |
         set(ENV{NINJA_STATUS} "[%f/%t %o/sec] ")
 
-        if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
-          file(STRINGS environment_script_output.txt output_lines)
-          foreach(line IN LISTS output_lines)
-            if (line MATCHES "^([a-zA-Z0-9_-]+)=(.*)$")
-              set(ENV{${CMAKE_MATCH_1}} "${CMAKE_MATCH_2}")
-            endif()
-          endforeach()
-        endif()
-
         set(path_separator ":")
-        if ("${{ runner.os }}" STREQUAL "Windows")
-          set(path_separator ";")
-        endif()
         set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
 
         file(TO_CMAKE_PATH "$ENV{GITHUB_WORKSPACE}" ccache_basedir)
@@ -178,9 +119,6 @@ jobs:
         set(ENV{CCACHE_COMPRESS} "true")
         set(ENV{CCACHE_COMPRESSLEVEL} "6")
         set(ENV{CCACHE_MAXSIZE} "400M")
-        if ("${{ matrix.config.cxx }}" STREQUAL "cl")
-          set(ENV{CCACHE_MAXSIZE} "600M")
-        endif()
 
         execute_process(COMMAND ccache -p)
         execute_process(COMMAND ccache -z)
@@ -263,25 +201,10 @@ jobs:
       matrix:
         config:
         - {
-            name: "Windows Latest MSVC", artifact: "Windows-MSVC.tar.xz",
-            os: ubuntu-latest
-          }
-        - {
-            name: "Windows Latest MinGW", artifact: "Windows-MinGW.tar.xz",
-            os: ubuntu-latest
-          }
-        - {
             name: "Ubuntu Latest GCC", artifact: "Linux-GCC.tar.xz",
             os: ubuntu-latest
           }
-        - {
-            name: "Ubuntu Latest Clang", artifact: "Linux-Clang.tar.xz",
-            os: ubuntu-latest
-          }
-        - {
-            name: "macOS Latest Clang", artifact: "macOS.tar.xz",
-            os: ubuntu-latest
-          }
+
     needs: release
 
     steps:
