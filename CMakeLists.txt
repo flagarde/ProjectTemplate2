@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16...3.18.1)
+cmake_minimum_required(VERSION 3.12...3.18.1)
 
 set(GITHUB_ORGANIZATION "flagarde")
 set(PROJECT_NAME "ProjectTemplate")
