@@ -1,4 +1,4 @@
-name: CMake Build Matrix
+name: macOS
 
 on: [push, pull_request]
 
