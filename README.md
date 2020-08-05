@@ -6,6 +6,8 @@
 ![Windows MSVC](https://github.com/flagarde/ProjectTemplate/workflows/Windows%20MSVC/badge.svg)
 ![Windows MinGW](https://github.com/flagarde/ProjectTemplate/workflows/Windows%20MinGW/badge.svg)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6a6bfa2dbef4060a99fdfe1ef244a9e)](https://app.codacy.com/manual/flagarde/ProjectTemplate?utm_source=github.com&utm_medium=referral&utm_content=flagarde/ProjectTemplate&utm_campaign=Badge_Grade_Dashboard)
+
 ## Template for C++ projects ##
 
 [Documentation](https://flagarde.github.io/ProjectTemplate/)
