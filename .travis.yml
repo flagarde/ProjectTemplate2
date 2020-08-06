@@ -17,6 +17,7 @@ install:
 - touch $HOME/.cache/mydependency.so
 
 script:
+
 - mkdir -p build && cd build
 
 # Configure
@@ -25,7 +26,6 @@ script:
 - cmake --build . --config Debug -- -j $(nproc)
 # Test
 - ctest -j $(nproc) --output-on-failure
-
 
 after_success:
 # Create lcov report
@@ -40,6 +40,7 @@ after_success:
 # '-f' specifies file(s) to use and disables manual coverage gathering and file search which has already been done above
 - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
 
-#notifications:
-#  email:
-#    - kosrok97@gmail.com
+notifications:
+  email:
+    - kosrok97@gmail.com
+
