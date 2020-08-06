@@ -1,18 +1,18 @@
-# @PROJECT_NAME@ v@PROJECT_VERSION@ ![GitHub](https://img.shields.io/github/license/@GITHUB_ORGANIZATION@/@PROJECT_NAME@) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/@GITHUB_ORGANIZATION@/@PROJECT_NAME@) ![GitHub repo size](https://img.shields.io/github/repo-size/@GITHUB_ORGANIZATION@/@PROJECT_NAME@) #
+# @PROJECT_NAME@ v@PROJECT_VERSION@ ![GitHub](https://img.shields.io/github/license/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub repo size](https://img.shields.io/github/repo-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) #
 
-![macOS](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/macOS/badge.svg?branch=master)
-![Linux GCC](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Linux%20GCC/badge.svg)
-![Linux Clang](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Linux%20Clang/badge.svg)
-![Windows MSVC](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Windows%20MSVC/badge.svg)
-![Windows MinGW](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Windows%20MinGW/badge.svg)
+![macOS](https://github.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/workflows/macOS/badge.svg?branch=master)
+![Linux GCC](https://github.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/workflows/Linux%20GCC/badge.svg)
+![Linux Clang](https://github.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/workflows/Linux%20Clang/badge.svg)
+![Windows MSVC](https://github.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/workflows/Windows%20MSVC/badge.svg)
+![Windows MinGW](https://github.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/workflows/Windows%20MinGW/badge.svg)
 
-[![Build Status](https://travis-ci.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@.svg?branch=master)](https://travis-ci.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@)
+[![Build Status](https://travis-ci.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@.svg?branch=master)](https://travis-ci.com/@DEPOT_PROVIDER@/@REPOSITORY_NAME@)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6a6bfa2dbef4060a99fdfe1ef244a9e)](https://app.codacy.com/manual/@GITHUB_ORGANIZATION@/@PROJECT_NAME@?utm_source=github.com&utm_medium=referral&utm_content=@GITHUB_ORGANIZATION@/@PROJECT_NAME@&utm_campaign=Badge_Grade_Dashboard)
-[![CodeFactor](https://www.codefactor.io/repository/github/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/badge)](https://www.codefactor.io/repository/github/@GITHUB_ORGANIZATION@/@PROJECT_NAME@)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6a6bfa2dbef4060a99fdfe1ef244a9e)](https://app.codacy.com/manual/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?utm_source=github.com&utm_medium=referral&utm_content=@DEPOT_PROVIDER@/@REPOSITORY_NAME@&utm_campaign=Badge_Grade_Dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/badge)](https://www.codefactor.io/repository/github/@DEPOT_PROVIDER@/@REPOSITORY_NAME@)
 
-[![codecov](https://codecov.io/gh/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/branch/master/graph/badge.svg)](https://codecov.io/gh/@GITHUB_ORGANIZATION@/@PROJECT_NAME@)
+[![codecov](https://codecov.io/gh/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/branch/master/graph/badge.svg)](https://codecov.io/gh/@DEPOT_PROVIDER@/@REPOSITORY_NAME@)
 
 ## @PROJECT_DESCRIPTION@ ##
 
-[Documentation](https://@GITHUB_ORGANIZATION@.github.io/@PROJECT_NAME@/)
+[Documentation](https://@DEPOT_PROVIDER@.github.io/@REPOSITORY_NAME@/)
