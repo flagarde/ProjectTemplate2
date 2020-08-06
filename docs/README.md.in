@@ -1,4 +1,4 @@
-# @PROJECT_NAME@ v@PROJECT_VERSION@ #
+# @PROJECT_NAME@ v@PROJECT_VERSION@ ![GitHub](https://img.shields.io/github/license/@GITHUB_ORGANIZATION@/@PROJECT_NAME@) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/@GITHUB_ORGANIZATION@/@PROJECT_NAME@) ![GitHub repo size](https://img.shields.io/github/repo-size/@GITHUB_ORGANIZATION@/@PROJECT_NAME@) #
 
 ![macOS](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/macOS/badge.svg?branch=master)
 ![Linux GCC](https://github.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/workflows/Linux%20GCC/badge.svg)
