@@ -10,7 +10,7 @@ include("${CMAKECM_INSTALL_DIR}/CMakeCM.cmake")
 
 include(GitInfos)
 
-project(${REPOSITORY_NAME} VERSION "0.2" DESCRIPTION "Template for C++ projects" HOMEPAGE_URL "${HOSTING_BASEURL}/${DEPOT_PROVIDER}/${REPOSITORY_NAME}" LANGUAGES CXX)
+project(ProjectTemplate VERSION "0.2" DESCRIPTION "Template for C++ projects" HOMEPAGE_URL "${HOSTING_BASEURL}/${DEPOT_PROVIDER}/${REPOSITORY_NAME}" LANGUAGES CXX)
 
 #execute_process(
 #    COMMAND ${GIT_EXECUTABLE} "tag" "--list" "--format=%(refname:strip=2)"
