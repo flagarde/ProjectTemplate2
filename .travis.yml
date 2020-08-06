@@ -28,7 +28,7 @@ jobs:
 addons:
   apt:
     packages:
-        - g++-10
+        - g++-9
         - llvm-10-dev
         - libclang-10-dev
         - clang-format-10
