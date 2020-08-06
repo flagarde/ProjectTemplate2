@@ -9,6 +9,7 @@
 [![Build Status](https://travis-ci.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@.svg?branch=master)](https://travis-ci.com/@GITHUB_ORGANIZATION@/@PROJECT_NAME@)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6a6bfa2dbef4060a99fdfe1ef244a9e)](https://app.codacy.com/manual/@GITHUB_ORGANIZATION@/@PROJECT_NAME@?utm_source=github.com&utm_medium=referral&utm_content=@GITHUB_ORGANIZATION@/@PROJECT_NAME@&utm_campaign=Badge_Grade_Dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/badge)](https://www.codefactor.io/repository/github/@GITHUB_ORGANIZATION@/@PROJECT_NAME@)
 
 [![codecov](https://codecov.io/gh/@GITHUB_ORGANIZATION@/@PROJECT_NAME@/branch/master/graph/badge.svg)](https://codecov.io/gh/@GITHUB_ORGANIZATION@/@PROJECT_NAME@)
 
