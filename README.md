@@ -1,4 +1,4 @@
-# ProjectTemplate v0.1.0.0 ![GitHub](https://img.shields.io/github/license/flagarde/ProjectTemplate) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flagarde/ProjectTemplate) ![GitHub repo size](https://img.shields.io/github/repo-size/flagarde/ProjectTemplate) #
+# ProjectTemplate v0.2 ![GitHub](https://img.shields.io/github/license/flagarde/ProjectTemplate) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flagarde/ProjectTemplate) ![GitHub repo size](https://img.shields.io/github/repo-size/flagarde/ProjectTemplate) #
 
 ![macOS](https://github.com/flagarde/ProjectTemplate/workflows/macOS/badge.svg?branch=master)
 ![Linux GCC](https://github.com/flagarde/ProjectTemplate/workflows/Linux%20GCC/badge.svg)
