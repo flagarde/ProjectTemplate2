@@ -57,8 +57,8 @@ addons:
       - ninja
     update: true
 
-before_install:
-  - ./.travis-ci.d/install_dependencies.sh
+#before_install:
+#  - ./.travis-ci.d/install_dependencies.sh
 
 install:
 - mkdir -p $HOME/.cache
