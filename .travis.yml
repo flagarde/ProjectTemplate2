@@ -73,8 +73,8 @@ addons:
       - ninja
     update: true
 
-before_install:
-  - ./.travis-ci.d/install_dependencies.sh
+#before_install:
+#  - ./.travis-ci.d/install_dependencies.sh
 
 install:
 - mkdir -p $HOME/.cache
@@ -92,12 +92,11 @@ script:
     #- source dependencies/root/bin/thisroot.sh
     - mkdir -p build && cd build
     - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "gcc" ];
-      then
-        cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug .. ;
-      elif [ "$TRAVIS_OS_NAME" == "windows" ]
-        cmake -G "Visual Studio 15 2017" -A x64 -DCODE_COVERAGE=OFF .. ;
+        then cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug .. ;
+      elif [ "$TRAVIS_OS_NAME" == "windows" ];
+        then cmake -G "Visual Studio 15 2017" -A x64 -DCODE_COVERAGE=OFF .. ;
       else
-         cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE=Debug .. ;
+        cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE=Debug .. ;
       fi
     # Build (for Make on Unix equivalent to `make -j $(nproc)`)
     - cmake --build . --config Debug -- -j $(nproc)
