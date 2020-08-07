@@ -45,7 +45,7 @@ addons:
         - libclang-10-dev
         - libclang1-10
         - clang-format-10
-        - python-clang-10
+        - python3-clang-10
         - clangd-10
         - libfuzzer-10-dev
         - lldb-10
