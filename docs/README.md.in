@@ -16,3 +16,35 @@
 ## @PROJECT_DESCRIPTION@ ##
 
 [Documentation](https://@DEPOT_PROVIDER@.github.io/@REPOSITORY_NAME@/)
+
+
+# @PROJECT_NAME@ v@PROJECT_VERSION@ ![GitHub](https://img.shields.io/github/license/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub repo size](https://img.shields.io/github/repo-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) #
+
+
+## @PROJECT_DESCRIPTION@ ##
+[📘 Documentation](https://@DEPOT_PROVIDER@.github.io/@REPOSITORY_NAME@/)
+
+
+## Builds
+|                   | Linux clang       | Linux gcc         | macOS clang       | Windows MSVC      | Windows MinGW     |
+|:-----------------:|:-----------------:|:-----------------:|:-----------------:|:-----------------:|:-----------------:|
+|Github             |![1]               |![2]               |![3]               |![4]               |![5]               |
+|Travis             |[![6]][0]          |[![7]][0]          |[![8]][0]          |[![9]][0]          |       ❌          |
+
+[1]: https://img.shields.io/github/workflow/status/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/Linux%20Clang
+[2]: https://img.shields.io/github/workflow/status/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/Linux%20GCC
+[3]: https://img.shields.io/github/workflow/status/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/macOS
+[4]: https://img.shields.io/github/workflow/status/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/Windows%20MSVC
+[5]: https://img.shields.io/github/workflow/status/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/Windows%20MinGW
+
+[6]: https://travis-matrix-badges.herokuapp.com/repos/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/branches/master/1?use_travis_com=true
+[7]: https://travis-matrix-badges.herokuapp.com/repos/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/branches/master/2?use_travis_com=true
+[8]: https://travis-matrix-badges.herokuapp.com/repos/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/branches/master/3?use_travis_com=true
+[9]: https://travis-matrix-badges.herokuapp.com/repos/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/branches/master/4?use_travis_com=true
+[10]:❌
+[0]: https://travis-ci.org/@DEPOT_PROVIDER@/@REPOSITORY_NAME@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6a6bfa2dbef4060a99fdfe1ef244a9e)](https://app.codacy.com/manual/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?utm_source=github.com&utm_medium=referral&utm_content=@DEPOT_PROVIDER@/@REPOSITORY_NAME@&utm_campaign=Badge_Grade_Dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/badge)](https://www.codefactor.io/repository/github/@DEPOT_PROVIDER@/@REPOSITORY_NAME@)
+
+[![codecov](https://codecov.io/gh/@DEPOT_PROVIDER@/@REPOSITORY_NAME@/branch/master/graph/badge.svg)](https://codecov.io/gh/@DEPOT_PROVIDER@/@REPOSITORY_NAME@)
