@@ -19,38 +19,22 @@ cxx_17()
 
 default_install_prefix("${CMAKE_SOURCE_DIR}/bin")
 
-#execute_process(
-#    COMMAND ${GIT_EXECUTABLE} "tag" "--list" "--format=%(refname:strip=2)"
-#    RESULT_VARIABLE RESULT
-#    OUTPUT_VARIABLE OUTPUT)
-#message(STATUS "${OUTPUT}")
-#string(REPLACE "\n" ";" OUTPUT ${OUTPUT})
+include(Formatters)
+# execute_process( COMMAND ${GIT_EXECUTABLE} "tag" "--list" "--format=%(refname:strip=2)" RESULT_VARIABLE RESULT OUTPUT_VARIABLE OUTPUT) message(STATUS "${OUTPUT}") string(REPLACE "\n" ";" OUTPUT ${OUTPUT})
 
-#message(STATUS "${OUTPUT}")
-#set(OUTPUT "L;LL;0.2;")
-#list(LENGTH OUTPUT len)
-#message(STATUS "len = ${len}")
+# message(STATUS "${OUTPUT}") set(OUTPUT "L;LL;0.2;") list(LENGTH OUTPUT len) message(STATUS "len = ${len}")
 
-#string(REPLACE " " ";" TAGS ${OUTPUT})
+# string(REPLACE " " ";" TAGS ${OUTPUT})
 
-#message(STATUS "${PROJECT_VERSION}")
-#list(FIND OUTPUT "${PROJECT_VERSION}" TAG)
+# message(STATUS "${PROJECT_VERSION}") list(FIND OUTPUT "${PROJECT_VERSION}" TAG)
 
-#message(STATUS ${TAG})
-#endif()
+# message(STATUS ${TAG}) endif()
 
-#if(NOT ${TAG_EXISTS} EQUAL -1)
-#  message(STATUS "Tag v${PROJECT_VERSION} already exists")
-#else()
-#  execute_process(
+# if(NOT ${TAG_EXISTS} EQUAL -1) message(STATUS "Tag v${PROJECT_VERSION} already exists") else() execute_process(
 
-#    COMMAND ${GIT_EXECUTABLE} tag v${PROJECT_VERSION}
-#    RESULT_VARIABLE RESULT
-#    OUTPUT_VARIABLE OUTPUT)
-#endif()
+# COMMAND ${GIT_EXECUTABLE} tag v${PROJECT_VERSION} RESULT_VARIABLE RESULT OUTPUT_VARIABLE OUTPUT) endif()
 
-#string (REGEX REPLACE "\n" ";"  TAGS ${TAGS})
-#set_property (CACHE REPO_TAG PROPERTY STRINGS ${TAGS})
+# string (REGEX REPLACE "\n" ";"  TAGS ${TAGS}) set_property (CACHE REPO_TAG PROPERTY STRINGS ${TAGS})
 
 configure_file("${CMAKE_SOURCE_DIR}/docs/README.md.in" "${CMAKE_SOURCE_DIR}/README.md" @ONLY)
 
@@ -67,11 +51,12 @@ add_library(coverage_config INTERFACE)
 option(CODE_COVERAGE "Enable coverage reporting" OFF)
 if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   # Add required flags (GCC & LLVM/Clang)
-  target_compile_options(coverage_config INTERFACE
-    -O0        # no optimization
-    -g         # generate debug info
-    -fprofile-arcs -ftest-coverage
-  )
+  target_compile_options(
+    coverage_config
+    INTERFACE -O0 # no optimization
+              -g # generate debug info
+              -fprofile-arcs -ftest-coverage
+    )
   if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
     target_link_options(coverage_config INTERFACE -fprofile-arcs -ftest-coverage)
   else()
@@ -79,15 +64,13 @@ if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   endif()
 endif()
 
-
 add_subdirectory(libs)
 
 add_subdirectory(apps)
 
-option (BUILD_TESTING "Build the testing tree." ON)
-# Only build tests if we are the top-level project
-# Allows this to be used by super projects with `add_subdirectory`
-if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
+option(BUILD_TESTING "Build the testing tree." ON)
+# Only build tests if we are the top-level project Allows this to be used by super projects with `add_subdirectory`
+if(BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
   enable_testing()
   add_subdirectory(tests)
 endif()
