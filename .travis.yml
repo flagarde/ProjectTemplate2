@@ -54,9 +54,9 @@ addons:
         - libc++abi-10-dev
         - libomp-10-dev
         - clang-tidy-10
-        - cmake
         - lcov
         - doxygen
+        - doxygen-latex
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-bionic-10
