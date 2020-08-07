@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="" rel="noopener">
  <img width=200px height=200px src="https://i.imgur.com/FxL5qM0.jpg" alt="Bot logo"></a>
@@ -276,6 +277,9 @@ who participated in this project.
 
 
 # @PROJECT_NAME@ v@PROJECT_VERSION@ ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?include_prereleases) ![GitHub](https://img.shields.io/github/license/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub repo size](https://img.shields.io/github/repo-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub language count](https://img.shields.io/github/languages/count/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub forks](https://img.shields.io/github/forks/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?style=plastic) ![GitHub stars](https://img.shields.io/github/stars/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?style=plastic) ![GitHub watchers](https://img.shields.io/github/watchers/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub last commit](https://img.shields.io/github/last-commit/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?style=plastic) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub contributors](https://img.shields.io/github/contributors-anon/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) #
+=======
+# @PROJECT_NAME@ v@PROJECT_VERSION@ ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/@DEPOT_PROVIDER@/@REPOSITORY_NAME@?include_prereleases) ![GitHub](https://img.shields.io/github/license/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub repo size](https://img.shields.io/github/repo-size/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub language count](https://img.shields.io/github/languages/count/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub forks](https://img.shields.io/github/forks/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub stars](https://img.shields.io/github/stars/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub watchers](https://img.shields.io/github/watchers/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub last commit](https://img.shields.io/github/last-commit/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) ![GitHub contributors](https://img.shields.io/github/contributors-anon/@DEPOT_PROVIDER@/@REPOSITORY_NAME@) #
+>>>>>>> a65a41d9082077df61827baf3936846c8a7c3598
 
 ## @PROJECT_DESCRIPTION@ ##
 [📘 Documentation](https://@DEPOT_PROVIDER@.github.io/@REPOSITORY_NAME@/)

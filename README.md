@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="" rel="noopener">
  <img width=200px height=200px src="https://i.imgur.com/FxL5qM0.jpg" alt="Bot logo"></a>
@@ -276,6 +277,9 @@ who participated in this project.
 
 
 # ProjectTemplate v0.2 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/flagarde/ProjectTemplate?include_prereleases) ![GitHub](https://img.shields.io/github/license/flagarde/ProjectTemplate) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flagarde/ProjectTemplate) ![GitHub repo size](https://img.shields.io/github/repo-size/flagarde/ProjectTemplate) ![GitHub language count](https://img.shields.io/github/languages/count/flagarde/ProjectTemplate) ![GitHub forks](https://img.shields.io/github/forks/flagarde/ProjectTemplate?style=plastic) ![GitHub stars](https://img.shields.io/github/stars/flagarde/ProjectTemplate?style=plastic) ![GitHub watchers](https://img.shields.io/github/watchers/flagarde/ProjectTemplate) ![GitHub last commit](https://img.shields.io/github/last-commit/flagarde/ProjectTemplate?style=plastic) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/flagarde/ProjectTemplate) ![GitHub contributors](https://img.shields.io/github/contributors-anon/flagarde/ProjectTemplate) #
+=======
+# ProjectTemplate v0.2 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/flagarde/ProjectTemplate?include_prereleases) ![GitHub](https://img.shields.io/github/license/flagarde/ProjectTemplate) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flagarde/ProjectTemplate) ![GitHub repo size](https://img.shields.io/github/repo-size/flagarde/ProjectTemplate) ![GitHub language count](https://img.shields.io/github/languages/count/flagarde/ProjectTemplate) ![GitHub forks](https://img.shields.io/github/forks/flagarde/ProjectTemplate) ![GitHub stars](https://img.shields.io/github/stars/flagarde/ProjectTemplate) ![GitHub watchers](https://img.shields.io/github/watchers/flagarde/ProjectTemplate) ![GitHub last commit](https://img.shields.io/github/last-commit/flagarde/ProjectTemplate) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/flagarde/ProjectTemplate) ![GitHub contributors](https://img.shields.io/github/contributors-anon/flagarde/ProjectTemplate) #
+>>>>>>> a65a41d9082077df61827baf3936846c8a7c3598
 
 ## Template for C++ projects ##
 [📘 Documentation](https://flagarde.github.io/ProjectTemplate/)
