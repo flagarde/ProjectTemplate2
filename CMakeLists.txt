@@ -15,8 +15,6 @@ prevent_in_source_builds()
 
 project(ProjectTemplate VERSION "0.2" DESCRIPTION "Template for C++ projects" HOMEPAGE_URL "${HOSTING_BASEURL}/${DEPOT_PROVIDER}/${REPOSITORY_NAME}" LANGUAGES CXX)
 
-
-
 cxx_17()
 
 default_install_prefix("${CMAKE_SOURCE_DIR}/bin")
