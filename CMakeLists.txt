@@ -8,11 +8,14 @@ set(CMAKECM_MODULES_DIR "${CMAKECM_INSTALL_DIR}/Modules")
 file(DOWNLOAD "${CMAKECM_BASE_URL}/CMakeCM.cmake" "${CMAKECM_INSTALL_DIR}/CMakeCM.cmake" INACTIVITY_TIMEOUT 5 TIMEOUT 5 EXPECTED_HASH SHA256=${CMAKECM_SHA256})
 include("${CMAKECM_INSTALL_DIR}/CMakeCM.cmake")
 
+include(Common)
 include(GitInfos)
+
+prevent_in_source_builds()
 
 project(ProjectTemplate VERSION "0.2" DESCRIPTION "Template for C++ projects" HOMEPAGE_URL "${HOSTING_BASEURL}/${DEPOT_PROVIDER}/${REPOSITORY_NAME}" LANGUAGES CXX)
 
-include(Common)
+
 
 cxx_17()
 
