@@ -62,13 +62,6 @@ include(Formatters)
 configure_file("${CMAKE_SOURCE_DIR}/docs/README.md.in"
                "${CMAKE_SOURCE_DIR}/README.md" @ONLY)
 
-# Use C++11
-set(CMAKE_CXX_STANDARD 11)
-# Require (at least) it
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-# Don't use e.g. GNU extension (like -std=gnu++11) for portability
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 # Code Coverage Configuration
 add_library(coverage_config INTERFACE)
 
