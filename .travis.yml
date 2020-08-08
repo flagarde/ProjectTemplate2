@@ -55,8 +55,6 @@ addons:
         - libomp-10-dev
         - clang-tidy-10
         - lcov
-        - doxygen
-        - doxygen-latex
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-bionic-10
@@ -67,7 +65,6 @@ addons:
     packages:
       - cmake
       - gcc@9
-      - doxygen
       - lcov
       - llvm@10
       - ninja
