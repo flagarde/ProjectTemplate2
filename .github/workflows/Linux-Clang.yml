@@ -163,14 +163,15 @@ jobs:
 
   publish:
     if: contains(github.ref, 'tags/v')
-    name: "Ubuntu Latest Clang"
-    runs-on: ubuntu-latest
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
-            artifact: "Linux-Clang.tar.xz"
+            name: "Ubuntu Latest Clang", artifact: "Linux-Clang.tar.xz",
+            os: ubuntu-latest
           }
     needs: release
 

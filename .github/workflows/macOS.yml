@@ -176,14 +176,15 @@ jobs:
 
   publish:
     if: contains(github.ref, 'tags/v')
-    name: "macOS Latest Clang"
-    runs-on: ubuntu-latest
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
-             artifact: "macOS.tar.xz"
+            name: "macOS Latest Clang", artifact: "macOS.tar.xz",
+            os: ubuntu-latest
           }
     needs: release
 

@@ -200,14 +200,15 @@ jobs:
 
   publish:
     if: contains(github.ref, 'tags/v')
-    name: "Windows Latest MSVC"
-    runs-on: ubuntu-latest
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
-            artifact: "Windows-MSVC.tar.xz"
+            name: "Windows Latest MSVC", artifact: "Windows-MSVC.tar.xz",
+            os: ubuntu-latest
           }
     needs: release
 
