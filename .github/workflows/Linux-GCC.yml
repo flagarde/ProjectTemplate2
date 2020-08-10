@@ -123,9 +123,10 @@ jobs:
 
         execute_process(COMMAND ccache -p)
         execute_process(COMMAND ccache -z)
-
+        include(ProcessorCount)
+        ProcessorCount(N)
         execute_process(
-          COMMAND ${{ steps.cmake_and_ninja.outputs.cmake_dir }}/cmake --build . --config Debug --parallel 4
+          COMMAND ${{ steps.cmake_and_ninja.outputs.cmake_dir }}/cmake --build build --config $ENV{BUILD_TYPE} --parallel ${N}
           RESULT_VARIABLE result
         )
         if (NOT result EQUAL 0)
