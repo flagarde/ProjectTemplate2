@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    name: ${{ matrix.config.name }}
+    name: "Ubuntu Latest GCC"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -31,16 +31,10 @@ jobs:
       with:
         cmake-version: '${{env.CMAKE_VERSION}}'
 
-    - name: 📥 Download Ninja
-      id: Ninja
-      shell: cmake -P {0}
-      run: |
-        set(ninja_version $ENV{NINJA_VERSION})
-        set(ninja_suffix "linux.zip")
-        set(ninja_url "https://github.com/ninja-build/ninja/releases/download/v${ninja_version}/ninja-${ninja_suffix}")
-        file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
-        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
-        execute_process(COMMAND chmod +x ninja)
+    - name: ➕ Install Ninja
+      uses: seanmiddleditch/gha-setup-ninja@v1
+      with:
+        version: '${{env.NINJA_VERSION}}'
 
     - name: 📥 Download ccache
       id: ccache
@@ -61,9 +55,9 @@ jobs:
       uses: actions/cache@v1.1.0
       with:
         path: .ccache
-        key: ${{ matrix.config.name }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
+        key: ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
         restore-keys: |
-          ${{ matrix.config.name }}-ccache-
+          ccache-
 
     - name: 🔧 Configure
       shell: cmake -P {0}
