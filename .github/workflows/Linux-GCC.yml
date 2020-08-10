@@ -30,7 +30,7 @@ jobs:
       with:
         cmake-version: '${{env.CMAKE_VERSION}}'
 
-    - name: 📦 Download Ninja
+    - name: 📥 Download Ninja
       id: Ninja
       shell: cmake -P {0}
       run: |
@@ -41,7 +41,7 @@ jobs:
         execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
         execute_process(COMMAND chmod +x ninja)
 
-    - name: 📦 Download ccache
+    - name: 📥 Download ccache
       id: ccache
       shell: cmake -P {0}
       run: |
@@ -64,7 +64,7 @@ jobs:
         restore-keys: |
           ${{ matrix.config.name }}-ccache-
 
-    - name: Configure
+    - name: 🔧 Configure
       shell: cmake -P {0}
       run: |
         set(ENV{CC} ${{ matrix.config.cc }})
@@ -90,7 +90,7 @@ jobs:
         endif()
 
 
-    - name: Build
+    - name: 👷 Build
       shell: cmake -P {0}
       run: |
         set(ENV{NINJA_STATUS} "[%f/%t %o/sec] ")
@@ -119,7 +119,7 @@ jobs:
 
         execute_process(COMMAND ccache -s)
 
-    - name: Run tests
+    - name: ✅ Run tests
       shell: cmake -P {0}
       run: |
         include(ProcessorCount)
@@ -136,16 +136,16 @@ jobs:
           message(FATAL_ERROR "Running tests failed!")
         endif()
 
-    - name: Install Strip
+    - name: ➕ Install Strip
       run: cmake --install build --prefix instdir --strip
 
 
-    - name: Pack
+    - name: 📦 Pack
       working-directory: instdir
       run: cmake -E tar cJfv ../${{ matrix.config.artifact }} .
 
 
-    - name: Upload
+    - name: 🚀 Upload
       uses: actions/upload-artifact@v1
       with:
         path: ./${{ matrix.config.artifact }}
@@ -168,11 +168,15 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: Store Release url
+    - name: 🔗 Store Release url
+      uses: actions/upload-artifact@v1
+      with:
+        path: ./upload_url
+        name: upload_url
       run: |
         echo "${{ steps.create_release.outputs.upload_url }}" > ./upload_url
 
-    - uses: actions/upload-artifact@v1
+
       with:
         path: ./upload_url
         name: upload_url
