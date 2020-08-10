@@ -142,12 +142,11 @@ jobs:
       working-directory: instdir
       run: cmake -E tar cJfv ../${{ matrix.config.artifact }} .
 
-
     - name: 🚀 Upload
       uses: actions/upload-artifact@v1
       with:
-        path: artifact/${{ matrix.config.artifact }}
         name: ${{ matrix.config.artifact }}
+        path: ./
 
   release:
     if: contains(github.ref, 'tags/v')
