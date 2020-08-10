@@ -97,9 +97,9 @@ script:
         cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE=Debug .. ;
       fi
     # Build (for Make on Unix equivalent to `make -j $(nproc)`)
-    - cmake --build . --config Debug -- -j $(nproc)
+    - cmake --build . --config Debug --parallel $(nproc)
     # Test
-    - ctest -j $(nproc) --output-on-failure
+    - ctest --parallel $(nproc) --output-on-failure
 
 after_success:
 # Create lcov report
