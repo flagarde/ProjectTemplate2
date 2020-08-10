@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12...3.18.1)
+cmake_minimum_required(VERSION 3.16...3.18.1)
 
 # Download CMakeCM
 set(CMAKECM_BASE_URL
