@@ -121,14 +121,14 @@ jobs:
 
     - name: 📦 Pack
       working-directory: instdir
-      run: cmake -E tar cJfv ../${{env.ARTIFACT}} .
+      run: cmake -E tar cJfv ../artifact .
 
 
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
-        path: ./${{env.ARTIFACT}}
-        name: ${{env.ARTIFACT}}
+        path: ./artifact
+        name: ${ARTIFACT}
 
   release:
     if: contains(github.ref, 'tags/v')
@@ -169,7 +169,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v1
       with:
-        name: ${{env.ARTIFACT}}
+        name: ${ARTIFACT}
         path: ./
 
     - name: Download URL
@@ -188,6 +188,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.set_upload_url.outputs.upload_url }}
-        asset_path: ./${{env.ARTIFACT}}
-        asset_name: ${{env.ARTIFACT}}
+        asset_path: ./${ARTIFACT}
+        asset_name: ${ARTIFACT}
         asset_content_type: application/x-gtar
