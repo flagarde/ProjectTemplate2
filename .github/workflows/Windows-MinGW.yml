@@ -168,8 +168,7 @@ jobs:
     - name: 🚀 Upload
       uses: actions/upload-artifact@v1
       with:
-        name: ${{ matrix.config.artifact }}
-        path: ./
+        path: ./${{ matrix.config.artifact }}
 
   release:
     if: contains(github.ref, 'tags/v')
