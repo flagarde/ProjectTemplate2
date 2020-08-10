@@ -7,6 +7,8 @@ env:
   NINJA_VERSION: 1.10.0
   BUILD_TYPE: Release
   CCACHE_VERSION: 3.7.7
+  CC: cl
+  CXX: cl
 
 jobs:
   build:
@@ -18,7 +20,6 @@ jobs:
         config:
         - {
             name: "Windows Latest MSVC", artifact: "Windows-MSVC.tar.xz",
-            cc: "cl", cxx: "cl",
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           }
 
@@ -67,8 +68,6 @@ jobs:
     - name: 🔧 Configure
       shell: cmake -P {0}
       run: |
-        set(ENV{CC} ${{ matrix.config.cc }})
-        set(ENV{CXX} ${{ matrix.config.cxx }})
 
         if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
           execute_process(

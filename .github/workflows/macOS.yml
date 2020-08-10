@@ -7,6 +7,8 @@ env:
   NINJA_VERSION: 1.10.0
   BUILD_TYPE: Release
   CCACHE_VERSION: 3.7.7
+  CC: clang
+  CXX: clang++
 
 jobs:
   build:
@@ -18,7 +20,6 @@ jobs:
         config:
         - {
             name: "macOS Latest Clang", artifact: "macOS.tar.xz",
-            cc: "clang", cxx: "clang++"
           }
 
     steps:
@@ -67,8 +68,6 @@ jobs:
     - name: 🔧 Configure
       shell: cmake -P {0}
       run: |
-        set(ENV{CC} ${{ matrix.config.cc }})
-        set(ENV{CXX} ${{ matrix.config.cxx }})
         set(path_separator ":")
         set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
 
