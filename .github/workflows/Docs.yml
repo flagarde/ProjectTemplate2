@@ -15,7 +15,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Requirements
+    - name: ➕ Install required packages
       run: brew install doxygen
         && brew install sphinx-doc
         && pip3 install sphinx-rtd-theme
@@ -25,13 +25,13 @@ jobs:
     - name: 🚀 Checkout
       uses: actions/checkout@v2.3.2
 
-    - name: Build docs
+    - name: 🔨 Build docs
       run: cd docs
         && make html
         && cd _build/html
         && touch .nojekyll
 
-    - name: Deploy
+    - name: 🚀 Deploy docs
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

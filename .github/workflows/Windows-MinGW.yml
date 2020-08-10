@@ -11,14 +11,13 @@ env:
 jobs:
   build:
     name: ${{ matrix.config.name }}
-    os: windows-latest
+    runs-on: windows-latest
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
             name: "Windows Latest MinGW", artifact: "Windows-MinGW.tar.xz",
-            os: windows-latest,
             cc: "gcc", cxx: "g++"
           }
 
@@ -31,7 +30,7 @@ jobs:
       with:
         cmake-version: '${{env.CMAKE_VERSION}}'
 
-    - name: Download Ninja
+    - name: 📦 Download Ninja
       id: Ninja
       shell: cmake -P {0}
       run: |
@@ -41,7 +40,7 @@ jobs:
         file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
         execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
 
-    - name: Download ccache
+    - name: 📦 Download ccache
       id: ccache
       shell: cmake -P {0}
       run: |

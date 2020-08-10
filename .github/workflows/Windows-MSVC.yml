@@ -11,14 +11,13 @@ env:
 jobs:
   build:
     name: ${{ matrix.config.name }}
-    os: windows-latest
+    runs-on: windows-latest
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
             name: "Windows Latest MSVC", artifact: "Windows-MSVC.tar.xz",
-            os: windows-latest,
             cc: "cl", cxx: "cl",
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
           }
@@ -32,7 +31,7 @@ jobs:
       with:
         cmake-version: '${{env.CMAKE_VERSION}}'
 
-    - name: Download Ninja
+    - name: 📦 Download Ninja
       id: Ninja
       shell: cmake -P {0}
       run: |
@@ -42,7 +41,7 @@ jobs:
         file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
         execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
 
-    - name: Download ccache
+    - name: 📦 Download ccache
       id: ccache
       shell: cmake -P {0}
       run: |
