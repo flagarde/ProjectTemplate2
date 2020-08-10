@@ -24,34 +24,23 @@ jobs:
           }
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v2.3.2
 
-    - name: Download Ninja and CMake
-      id: cmake_and_ninja
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.0
+      with:
+        cmake-version: '${{env.CMAKE_VERSION}}'
+
+    - name: Download Ninja
+      id: Ninja
       shell: cmake -P {0}
       run: |
-        set(cmake_version $ENV{CMAKE_VERSION})
         set(ninja_version $ENV{NINJA_VERSION})
-
-        message(STATUS "Using host CMake version: ${CMAKE_VERSION}")
-
         set(ninja_suffix "win.zip")
-        set(cmake_suffix "win64-x64.zip")
-        set(cmake_dir "cmake-${cmake_version}-win64-x64/bin")
-
         set(ninja_url "https://github.com/ninja-build/ninja/releases/download/v${ninja_version}/ninja-${ninja_suffix}")
         file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
         execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
-
-        set(cmake_url "https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}-${cmake_suffix}")
-        file(DOWNLOAD "${cmake_url}" ./cmake.zip SHOW_PROGRESS)
-        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./cmake.zip)
-
-        # Save the path for other steps
-        file(TO_CMAKE_PATH "$ENV{GITHUB_WORKSPACE}/${cmake_dir}" cmake_dir)
-        message("::set-output name=cmake_dir::${cmake_dir}")
-
-        endif()
 
     - name: Download ccache
       id: ccache
