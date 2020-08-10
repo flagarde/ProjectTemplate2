@@ -29,7 +29,7 @@ jobs:
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.0
       with:
-        cmake-version: '$ENV{CMAKE_VERSION}'
+        cmake-version: '${{CMAKE_VERSION}}'
       
     - name: Download Ninja
       id: Ninja
