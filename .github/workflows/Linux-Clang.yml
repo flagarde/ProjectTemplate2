@@ -13,10 +13,15 @@ env:
 
 jobs:
   build:
-    name: "Ubuntu Latest Clang"
+    name: ${{ matrix.config.name }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+        config:
+        - {
+            name: "Ubuntu Latest Clang", artifact: "Linux-Clang.tar.xz",
+          }
 
     steps:
     - name: 🚀 Checkout
@@ -55,9 +60,9 @@ jobs:
       uses: actions/cache@v1.1.0
       with:
         path: .ccache
-        key: ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
+        key: ${{ matrix.config.name }}-ccache-${{ steps.ccache_cache_timestamp.outputs.timestamp }}
         restore-keys: |
-          ccache-
+          ${{ matrix.config.name }}-ccache-
     - name: 🔧 Configure
       shell: cmake -P {0}
       run: |
