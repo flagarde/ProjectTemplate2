@@ -31,16 +31,21 @@ jobs:
       with:
         cmake-version: '${{env.CMAKE_VERSION}}'
 
-    - name: 📥 Download Ninja
-      id: Ninja
-      shell: cmake -P {0}
-      run: |
-        set(ninja_version $ENV{NINJA_VERSION})
-        set(ninja_suffix "linux.zip")
-        set(ninja_url "https://github.com/ninja-build/ninja/releases/download/v${ninja_version}/ninja-${ninja_suffix}")
-        file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
-        execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
-        execute_process(COMMAND chmod +x ninja)
+    - name: Install ninja-build tool
+      uses: seanmiddleditch/gha-setup-ninja@v1
+      with:
+        version: 1.10.0
+
+    #- name: 📥 Download Ninja
+    #  id: Ninja
+    #  shell: cmake -P {0}
+    #  run: |
+    #    set(ninja_version $ENV{NINJA_VERSION})
+    #    set(ninja_suffix "linux.zip")
+    #    set(ninja_url "https://github.com/ninja-build/ninja/releases/download/v${ninja_version}/ninja-${ninja_suffix}")
+    #    file(DOWNLOAD "${ninja_url}" ./ninja.zip SHOW_PROGRESS)
+    #    execute_process(COMMAND ${CMAKE_COMMAND} -E tar xvf ./ninja.zip)
+    #    execute_process(COMMAND chmod +x ninja)
 
     - name: 📥 Download ccache
       id: ccache
