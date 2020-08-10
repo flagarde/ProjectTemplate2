@@ -178,15 +178,14 @@ jobs:
 
   publish:
     if: contains(github.ref, 'tags/v')
-    name: ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
+    name: "Ubuntu Latest GCC"
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         config:
         - {
-            name: "Ubuntu Latest GCC", artifact: "Linux-GCC.tar.xz",
-            os: ubuntu-latest
+            artifact: "Linux-GCC.tar.xz"
           }
 
     needs: release
