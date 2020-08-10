@@ -121,13 +121,13 @@ jobs:
 
     - name: 📦 Pack
       working-directory: instdir
-      run: cmake -E tar cJfv ../artifact .
+      run: cmake -E tar cJfv ../${ARTIFACT} .
 
 
     - name: Upload
       uses: actions/upload-artifact@v1
       with:
-        path: ./artifact
+        path: ./${{ARTIFACT}}
         name: ${ARTIFACT}
 
   release:
