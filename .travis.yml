@@ -11,7 +11,7 @@ cache: # see https://docs.travis-ci.com/user/caching/
 
 env:
   global:
-    - ROOT_VERSION=6.20.04
+    - CMAKE_BUILD_TYPE=Debug
 
 jobs:
   fast_finish: true
@@ -70,16 +70,16 @@ script:
     #- source dependencies/root/bin/thisroot.sh
     - mkdir -p build && cd build
     - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "gcc" ];
-        then cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug .. ;
+        then cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" .. ;
       elif [ "$TRAVIS_OS_NAME" == "windows" ];
         then cmake -G "Visual Studio 15 2017" -A x64 -DCODE_COVERAGE=OFF .. ;
       else
-        cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE=Debug .. ;
+        cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" .. ;
       fi
     # Build (for Make on Unix equivalent to `make -j $(nproc)`)
-    - cmake --build . --config Debug --parallel $(nproc)
+    - cmake --build . --config "$CMAKE_BUILD_TYPE" --parallel $(nproc)
     # Test
-    - ctest --parallel $(nproc) --output-on-failure
+    - ctest --parallel $(nproc) --output-on-failure -C "$CMAKE_BUILD_TYPE"
 
 after_success:
 # Create lcov report
