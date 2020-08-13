@@ -39,12 +39,12 @@ addons:
         #- llvm-10
         #- llvm-10-dev
         #- llvm-10-runtime
-        #- clang-10
+        - clang-10
         #- clang-tools-10
         #- libclang-common-10-dev
         #- libclang-10-dev
         #- libclang1-10
-        #- clang-format-10
+        - clang-format-10
         #- python3-clang-10
         #- clangd-10
         #- libfuzzer-10-dev
@@ -53,11 +53,11 @@ addons:
         #- libc++-10-dev
         #- libc++abi-10-dev
         #- libomp-10-dev
-        #- clang-tidy-10
+        - clang-tidy-10
         - lcov
-        - ninja
+        #- ninja
     sources:
-      #- ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
       #- llvm-toolchain-bionic-10
       #- sourceline: 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
       #  key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
