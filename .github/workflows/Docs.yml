@@ -40,6 +40,7 @@ jobs:
         && cmake --build build --config $ENV{BUILD_TYPE} --parallel ${N}
         && cmake --install build --prefix bin --strip
         && touch .nojekyll
+        && ls -lhi .
 
     - name: 🚀 Deploy docs
       uses: JamesIves/github-pages-deploy-action@releases/v3
