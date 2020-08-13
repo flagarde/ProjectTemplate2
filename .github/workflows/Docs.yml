@@ -32,7 +32,9 @@ jobs:
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: 👷 Build docs
-      run: cmake -DCMAKE_INSTALL_PREFIX=../bin -DBUILD_DOCS=ON ..
+      run: mkdir build
+        && cd build
+        && cmake -DCMAKE_INSTALL_PREFIX=../bin -DBUILD_DOCS=ON ..
         && make install
         && touch .nojekyll
 
