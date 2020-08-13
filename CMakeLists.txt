@@ -88,6 +88,17 @@ if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   endif()
 endif()
 
+option(BUILD_DOCS_ONLY "Build documentation only" OFF)
+option(BUILD_DOCS "Build documentation" ON)
+
+if(BUILD_DOCS OR BUILD_DOCS_ONLY)
+  add_subdirectory(docs)
+  if(BUILD_DOCS_ONLY)
+    return()
+  endif()
+endif()
+
+
 add_subdirectory(src)
 
 add_subdirectory(apps)
@@ -101,10 +112,7 @@ if(BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
 endif()
 
 
-option(BUILD_DOCS "Build documentation" ON)
-if(BUILD_DOCS)
-  add_subdirectory(docs)
-endif()
+
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
