@@ -33,7 +33,7 @@ jobs:
 addons:
   apt:
     packages:
-        - g++-9
+        - g++-10
         #- libllvm-10-ocaml-dev
         #- libllvm10
         #- llvm-10
@@ -44,7 +44,7 @@ addons:
         #- libclang-common-10-dev
         #- libclang-10-dev
         #- libclang1-10
-        - clang-format-10
+        #- clang-format-10
         #- python3-clang-10
         #- clangd-10
         #- libfuzzer-10-dev
@@ -53,7 +53,7 @@ addons:
         #- libc++-10-dev
         #- libc++abi-10-dev
         #- libomp-10-dev
-        - clang-tidy-10
+        #- clang-tidy-10
         - lcov
         #- ninja
     sources:
