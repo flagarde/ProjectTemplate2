@@ -44,10 +44,7 @@ addons:
   homebrew:
     packages:
       - cmake
-      - gcc@9
       - lcov
-      #- llvm@10
-      - ninja
     update: true
 
 #before_install:
