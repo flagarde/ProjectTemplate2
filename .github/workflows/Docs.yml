@@ -40,12 +40,11 @@ jobs:
         && cmake --build build --config $ENV{BUILD_TYPE} --parallel ${N}
         && cmake --install build --prefix bin --strip
         && touch .nojekyll
-        && ls -lhi .
 
     - name: 🚀 Deploy docs
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: bin/docs/Sphinx/html # The folder the action should deploy.
+        FOLDER: bin/docs/Sphinx # The folder the action should deploy.
         SINGLE_COMMIT: true
