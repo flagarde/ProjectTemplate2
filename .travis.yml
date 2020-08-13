@@ -39,7 +39,7 @@ addons:
         - clang-format-10
         - clang-tidy-10
         - lcov
-        #- ninja
+        - cmake
         
   homebrew:
     packages:
@@ -56,7 +56,7 @@ addons:
 install:
 - mkdir -p $HOME/.cache
 # /usr/bin/gcc points to an older compiler on both Linux and macOS.
-- if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
+- if [ "$CXX" = "g++" ]; then export CXX="g++-10" CC="gcc-10"; fi
 - if [ "$TRAVIS_OS_NAME" = "windows" ]; then choco install python; fi
 # /usr/bin/clang points to an older compiler on both Linux and macOS.
 #
