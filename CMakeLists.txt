@@ -88,7 +88,7 @@ if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   endif()
 endif()
 
-add_subdirectory(libs)
+add_subdirectory(src)
 
 add_subdirectory(apps)
 

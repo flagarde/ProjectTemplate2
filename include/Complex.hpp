@@ -1,28 +1,27 @@
-#ifndef _SRC_COMPLEX_HPP_
-#define _SRC_COMPLEX_HPP_
+#pragma once
 
 #include <cmath>
 #include <iostream>
 
 /**
-  * @file complex.hpp
-  * @author Rok Kos <kosrok97@gmail.com>
+  * @file Complex.hpp
+  * @author Rok Kos
   * @brief Class that represent complex number.
   */
 
 class Complex
 {
 private:
-  double real;
-  double imaginary;
+  double m_Real;
+  double m_Imaginary;
 
 public:
   // Constructor
-  Complex(double = 0, double = 0);
+  Complex(const double& = 0, const double& = 0);
   // Copy constructor
   Complex(const Complex& rhs);
   // Destructor
-  ~Complex();
+  ~Complex()=default;
   // Assigment operator
   Complex& operator=(const Complex& rhs);
   // Methods
@@ -30,5 +29,3 @@ public:
   double getImag() const;
   double abs() const;
 };
-
-#endif  // _SRC_COMPLEX_HPP_
