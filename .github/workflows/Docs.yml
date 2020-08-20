@@ -32,12 +32,12 @@ jobs:
     - name: ➕ Install cmake
       uses: jwlawson/actions-setup-cmake@v1.0
       with:
-        cmake-version: '${{env.CMAKE_VERSION}}'
+        cmake-version: ${{env.CMAKE_VERSION}}
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: 👷 Build docs
-      run: cmake -S . -B build -DCMAKE_INSTALL_PREFIX=bin -DBUILD_DOCS_ONLY=ON -DCMAKE_BUILD_TYPE=$ENV{BUILD_TYPE}
-        && cmake --build build --config $ENV{BUILD_TYPE} --parallel ${N}
+      run: cmake -S . -B build -DCMAKE_INSTALL_PREFIX=bin -DBUILD_DOCS_ONLY=ON -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        && cmake --build build --config ${{env.BUILD_TYPE}} --parallel ${N}
         && cmake --install build --prefix bin --strip
         && touch .nojekyll
 
