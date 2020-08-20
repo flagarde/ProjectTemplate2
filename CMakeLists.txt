@@ -58,7 +58,6 @@ include(Formatters)
 
 # string (REGEX REPLACE "\n" ";"  TAGS ${TAGS}) set_property (CACHE REPO_TAG
 # PROPERTY STRINGS ${TAGS})
-
 configure_file("${CMAKE_SOURCE_DIR}/docs/README.md.in"
                "${CMAKE_SOURCE_DIR}/README.md" @ONLY)
 
