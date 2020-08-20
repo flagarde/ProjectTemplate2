@@ -11,7 +11,7 @@ cache: # see https://docs.travis-ci.com/user/caching/
 
 env:
   global:
-    - CMAKE_BUILD_TYPE=Debug
+    - CMAKE_BUILD_TYPE=Coverage
 
 jobs:
   fast_finish: true
@@ -40,7 +40,7 @@ addons:
         - clang-tidy-10
         - lcov
         - cmake
-        
+
   homebrew:
     packages:
       - cmake
@@ -67,11 +67,11 @@ script:
     #- source dependencies/root/bin/thisroot.sh
     - mkdir -p build && cd build
     - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_COMPILER" == "gcc" ];
-        then cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" .. ;
+        then cmake -DCMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" .. ;
       elif [ "$TRAVIS_OS_NAME" == "windows" ];
-        then cmake -G "Visual Studio 15 2017" -A x64 -DCODE_COVERAGE=OFF .. ;
+        then cmake -G "Visual Studio 15 2017" -A x64 .. ;
       else
-        cmake -DCODE_COVERAGE=OFF -DCMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" .. ;
+        cmake -DCMAKE_BUILD_TYPE="$CMAKE_BUILD_TYPE" .. ;
       fi
     # Build (for Make on Unix equivalent to `make -j $(nproc)`)
     - cmake --build . --config "$CMAKE_BUILD_TYPE" --parallel $(nproc)
@@ -96,4 +96,3 @@ notifications:
   email:
     on_success: never
     on_failure: never
-
