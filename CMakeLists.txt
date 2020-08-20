@@ -5,7 +5,7 @@ set(CMAKECM_BASE_URL
     "https://raw.githubusercontent.com/flagarde/CMakeCM/master"
     CACHE STRING "URL of the CMakeCM package")
 set(CMAKECM_SHA256
-    "9493e474c71d279c2b263afffb3ced51cfaf937a7c7103de444ab306f5f23df3"
+    "a5739917401b3bddbd8a32e280008ed98aa1311cf1f217ac78490c800ed2ff9a"
     CACHE STRING "SHA256 of CMakeCM")
 set(CMAKECM_INSTALL_DIR
     "${CMAKE_BINARY_DIR}/cmake/CMakeCM"
@@ -65,28 +65,40 @@ configure_file("${CMAKE_SOURCE_DIR}/docs/README.md.in"
 include(CTest)
 enable_testing()
 
+include(ConfigurationTypes)
 
+add_configuration(CONFIG Debug INTERPROCEDURAL_OPTIMIZATION OFF C_FLAGS "-g0" OBJC_FLAGS "-g0" OBJCXX_FLAGS "-g0" Fortran_FLAGS "-g0" ASM_FLAGS "-g0" CXX_FLAGS "-g0")
 
+if("${CMAKE_C_COMPILER_ID}" MATCHES "(Apple)?[Cc]lang" OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "(Apple)?[Cc]lang")
+  add_configuration(CONFIG Coverage BASE_CONFIG Debug CXX_FLAGS "-fprofile-instr-generate -fcoverage-mapping" C_FLAGS "-fprofile-instr-generate -fcoverage-mapping")
+elseif(CMAKE_COMPILER_IS_GNUCXX)
+  add_configuration(CONFIG Coverage BASE_CONFIG Debug CXX_FLAGS "--coverage" "-fprofile-arcs" "-ftest-coverage" C_FLAGS "--coverage -fprofile-arcs -ftest-coverage")
+else()
+  message(ERROR "Code coverage requires Clang or GCC. Coverage Configuration will be equal to Debug")
+  add_configuration(CONFIG Coverage BASE_CONFIG Debug)
+endif()
+
+set_default_configuration(Debug VERBOSE)
 
 # Code Coverage Configuration
-add_library(coverage_config INTERFACE)
+#add_library(coverage_config INTERFACE)
 
-option(CODE_COVERAGE "Enable coverage reporting" OFF)
-if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+#option(CODE_COVERAGE "Enable coverage reporting" OFF)
+#if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   # Add required flags (GCC & LLVM/Clang)
-  target_compile_options(
-    coverage_config
-    INTERFACE -O0 # no optimization
-              -g # generate debug info
-              -fprofile-arcs -ftest-coverage)
-  if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
-    target_link_options(coverage_config INTERFACE -fprofile-arcs
-                        -ftest-coverage)
-  else()
-    target_link_libraries(coverage_config INTERFACE -fprofile-arcs
-                                                    -ftest-coverage)
-  endif()
-endif()
+#  target_compile_options(
+#    coverage_config
+#    INTERFACE -O0 # no optimization
+#              -g # generate debug info
+#              -fprofile-arcs -ftest-coverage)
+#  if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
+#    target_link_options(coverage_config INTERFACE -fprofile-arcs
+#                        -ftest-coverage)
+#  else()
+#    target_link_libraries(coverage_config INTERFACE -fprofile-arcs
+#                                                    -ftest-coverage)
+#  endif()
+#endif()
 
 option(BUILD_DOCS_ONLY "Build documentation only" OFF)
 option(BUILD_DOCS "Build documentation" ON)
@@ -117,4 +129,3 @@ endif()
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
-
