@@ -12,6 +12,9 @@
 class Complex
 {
 private:
+  
+  
+  
   double m_Real;
   double m_Imaginary;
 
