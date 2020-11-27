@@ -1,15 +1,18 @@
 #include "Complex.hpp"
 
-Complex::Complex(const double& real, const double& imaginary)
+Complex::Complex(   const double& real, const double&       imaginary)
 {
-  this->m_Real      = real;
-  this->m_Imaginary = imaginary;
+  this->m_Real        = real;
+  this->m_Imaginary   =     imaginary;
 }
 
 Complex::Complex(const Complex& rhs)
 {
-  this->m_Real      = rhs.m_Real;
-  this->m_Imaginary = rhs.m_Imaginary;
+  
+  
+  
+  this->m_Real      =         rhs.m_Real  ;
+             this->m_Imaginary = rhs.m_Imaginary;
 }
 
 Complex& Complex::operator=(const Complex& rhs)
